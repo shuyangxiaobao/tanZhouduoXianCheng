@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GCDViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOc-Bo-Pwb">
+                    <rect key="frame" x="0.0" y="30" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="1.GCD 同步执行"/>
+                    <connections>
+                        <action selector="gcdDemo1:" destination="-1" eventType="touchUpInside" id="hfL-1E-SSZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFT-dt-eWu">
+                    <rect key="frame" x="-2" y="101" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="3.回归主线程"/>
+                    <connections>
+                        <action selector="gcdDemo3:" destination="-1" eventType="touchUpInside" id="Woq-u8-cLl"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ds-k6-5Ax">
+                    <rect key="frame" x="0.0" y="137" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="4.GCD下载图片"/>
+                    <connections>
+                        <action selector="gcdDemo4:" destination="-1" eventType="touchUpInside" id="Gpl-HD-MdC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6T-Tz-ijY">
+                    <rect key="frame" x="0.0" y="173" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="5.串行队列,同步任务"/>
+                    <connections>
+                        <action selector="gcdDemo5:" destination="-1" eventType="touchUpInside" id="1Uk-G1-POd"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOL-wk-nyE">
+                    <rect key="frame" x="0.0" y="65" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="2.GCD 异步执行"/>
+                    <connections>
+                        <action selector="gcdDemo2:" destination="-1" eventType="touchUpInside" id="yNW-Cj-Bca"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddg-sO-ahu">
+                    <rect key="frame" x="1" y="209" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="6.串行队列,异步任务"/>
+                    <connections>
+                        <action selector="gcdDemo6:" destination="-1" eventType="touchUpInside" id="Nxf-Kq-Fue"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HuJ-7T-4cK">
+                    <rect key="frame" x="-1" y="280" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="8.并发队列,同步执行"/>
+                    <connections>
+                        <action selector="gcdDemo8:" destination="-1" eventType="touchUpInside" id="kN1-ec-iwK"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ar-pP-2NT">
+                    <rect key="frame" x="1" y="316" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="9.同步任务作用"/>
+                    <connections>
+                        <action selector="gcdDemo9:" destination="-1" eventType="touchUpInside" id="8qy-Fb-HWW"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vkg-R7-Spb">
+                    <rect key="frame" x="1" y="352" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="10.增强版同步任务"/>
+                    <connections>
+                        <action selector="gcdDemo10:" destination="-1" eventType="touchUpInside" id="4km-Xn-yvu"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBt-QD-kdY">
+                    <rect key="frame" x="1" y="244" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="7.并发队列,异步执行"/>
+                    <connections>
+                        <action selector="gcdDemo7:" destination="-1" eventType="touchUpInside" id="s7b-6j-wA7"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7m-Qh-udy">
+                    <rect key="frame" x="0.0" y="388" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="11.全局队列 (本质上并发队列)"/>
+                    <connections>
+                        <action selector="gcdDemo11:" destination="-1" eventType="touchUpInside" id="mPo-YP-Tib"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caj-Li-UaR">
+                    <rect key="frame" x="-2" y="424" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="12.全局队列,同步执行"/>
+                    <connections>
+                        <action selector="gcdDemo12:" destination="-1" eventType="touchUpInside" id="Iyc-xO-MAC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmW-AX-Bv9">
+                    <rect key="frame" x="0.0" y="460" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="13.全局队列,异步执行"/>
+                    <connections>
+                        <action selector="gcdDemo13:" destination="-1" eventType="touchUpInside" id="ztl-xx-flt"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUI-HA-PMd">
+                    <rect key="frame" x="0.0" y="496" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="14.主队列，同步执行(会奔溃)"/>
+                    <connections>
+                        <action selector="gcdDemo14:" destination="-1" eventType="touchUpInside" id="IBH-zr-ngM"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tph-45-YVk">
+                    <rect key="frame" x="-1" y="532" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="15.主队列，异步执行"/>
+                    <connections>
+                        <action selector="gcdDemo15:" destination="-1" eventType="touchUpInside" id="0f2-8G-2Ad"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Y7m-Qh-udy" firstAttribute="top" secondItem="Vkg-R7-Spb" secondAttribute="bottom" constant="6" id="0Qg-dz-QW3"/>
+                <constraint firstAttribute="trailing" secondItem="Ddg-sO-ahu" secondAttribute="trailing" constant="-1" id="3sW-51-gfZ"/>
+                <constraint firstItem="kBt-QD-kdY" firstAttribute="top" secondItem="Ddg-sO-ahu" secondAttribute="bottom" constant="5" id="4qD-b1-Wg7"/>
+                <constraint firstItem="9Ar-pP-2NT" firstAttribute="top" secondItem="HuJ-7T-4cK" secondAttribute="bottom" constant="6" id="5iA-4b-Zrm"/>
+                <constraint firstItem="ZmW-AX-Bv9" firstAttribute="trailing" secondItem="yUI-HA-PMd" secondAttribute="trailing" id="66P-et-Cz6"/>
+                <constraint firstItem="DFT-dt-eWu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="AeF-gw-Byo"/>
+                <constraint firstItem="j6T-Tz-ijY" firstAttribute="trailing" secondItem="Y7m-Qh-udy" secondAttribute="trailing" id="Afp-Rz-b7D"/>
+                <constraint firstItem="kBt-QD-kdY" firstAttribute="leading" secondItem="9Ar-pP-2NT" secondAttribute="leading" id="Air-yE-880"/>
+                <constraint firstItem="2Ds-k6-5Ax" firstAttribute="top" secondItem="DFT-dt-eWu" secondAttribute="bottom" constant="6" id="Cz3-d7-Klx"/>
+                <constraint firstItem="UOL-wk-nyE" firstAttribute="trailing" secondItem="2Ds-k6-5Ax" secondAttribute="trailing" id="DHO-tw-OtY"/>
+                <constraint firstItem="ZmW-AX-Bv9" firstAttribute="top" secondItem="caj-Li-UaR" secondAttribute="bottom" constant="6" id="JUN-DJ-jJP"/>
+                <constraint firstItem="kBt-QD-kdY" firstAttribute="trailing" secondItem="9Ar-pP-2NT" secondAttribute="trailing" id="NLv-cC-JpD"/>
+                <constraint firstItem="HuJ-7T-4cK" firstAttribute="top" secondItem="kBt-QD-kdY" secondAttribute="bottom" constant="6" id="NcG-Q8-WwT"/>
+                <constraint firstItem="HuJ-7T-4cK" firstAttribute="trailing" secondItem="Tph-45-YVk" secondAttribute="trailing" id="Nun-Wi-WxW"/>
+                <constraint firstItem="DFT-dt-eWu" firstAttribute="leading" secondItem="caj-Li-UaR" secondAttribute="leading" id="RPQ-vm-sN3"/>
+                <constraint firstItem="9Ar-pP-2NT" firstAttribute="leading" secondItem="Vkg-R7-Spb" secondAttribute="leading" id="RbW-bi-23e"/>
+                <constraint firstItem="TOc-Bo-Pwb" firstAttribute="leading" secondItem="UOL-wk-nyE" secondAttribute="leading" id="Rhv-Gi-77o"/>
+                <constraint firstItem="DFT-dt-eWu" firstAttribute="trailing" secondItem="caj-Li-UaR" secondAttribute="trailing" id="SoR-4S-RCa"/>
+                <constraint firstItem="TOc-Bo-Pwb" firstAttribute="trailing" secondItem="UOL-wk-nyE" secondAttribute="trailing" id="Umf-Ee-0hm"/>
+                <constraint firstItem="ZmW-AX-Bv9" firstAttribute="leading" secondItem="yUI-HA-PMd" secondAttribute="leading" id="VB5-cD-Zod"/>
+                <constraint firstItem="Ddg-sO-ahu" firstAttribute="leading" secondItem="kBt-QD-kdY" secondAttribute="leading" id="Wfl-34-4gN"/>
+                <constraint firstItem="2Ds-k6-5Ax" firstAttribute="leading" secondItem="j6T-Tz-ijY" secondAttribute="leading" id="XTp-Dh-JPE"/>
+                <constraint firstItem="HuJ-7T-4cK" firstAttribute="leading" secondItem="Tph-45-YVk" secondAttribute="leading" id="XZ4-WJ-WR0"/>
+                <constraint firstItem="Ddg-sO-ahu" firstAttribute="top" secondItem="j6T-Tz-ijY" secondAttribute="bottom" constant="6" id="YG9-4Q-wq8"/>
+                <constraint firstItem="9Ar-pP-2NT" firstAttribute="trailing" secondItem="Vkg-R7-Spb" secondAttribute="trailing" id="YZW-Ce-cD1"/>
+                <constraint firstItem="Ddg-sO-ahu" firstAttribute="trailing" secondItem="kBt-QD-kdY" secondAttribute="trailing" id="Z4m-zz-VAk"/>
+                <constraint firstItem="UOL-wk-nyE" firstAttribute="top" secondItem="TOc-Bo-Pwb" secondAttribute="bottom" constant="5" id="amQ-hF-INb"/>
+                <constraint firstItem="Y7m-Qh-udy" firstAttribute="trailing" secondItem="ZmW-AX-Bv9" secondAttribute="trailing" id="dMs-l7-WoR"/>
+                <constraint firstItem="DFT-dt-eWu" firstAttribute="top" secondItem="UOL-wk-nyE" secondAttribute="bottom" constant="6" id="f3j-Bc-UHO"/>
+                <constraint firstItem="UOL-wk-nyE" firstAttribute="leading" secondItem="2Ds-k6-5Ax" secondAttribute="leading" id="hqT-l4-5NI"/>
+                <constraint firstItem="Tph-45-YVk" firstAttribute="top" secondItem="yUI-HA-PMd" secondAttribute="bottom" constant="6" id="iVO-z0-Ztc"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="HuJ-7T-4cK" secondAttribute="trailing" constant="1" id="jI0-Wl-vdS"/>
+                <constraint firstItem="TOc-Bo-Pwb" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="10" id="lRI-Ft-k9f"/>
+                <constraint firstItem="2Ds-k6-5Ax" firstAttribute="trailing" secondItem="j6T-Tz-ijY" secondAttribute="trailing" id="lUO-GM-Lsu"/>
+                <constraint firstItem="TOc-Bo-Pwb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lx0-NT-13t"/>
+                <constraint firstItem="Vkg-R7-Spb" firstAttribute="top" secondItem="9Ar-pP-2NT" secondAttribute="bottom" constant="6" id="nNH-n7-bWn"/>
+                <constraint firstItem="Ddg-sO-ahu" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="1" id="nrq-5d-fIO"/>
+                <constraint firstAttribute="trailing" secondItem="TOc-Bo-Pwb" secondAttribute="trailing" id="nxe-gj-BuQ"/>
+                <constraint firstItem="j6T-Tz-ijY" firstAttribute="top" secondItem="2Ds-k6-5Ax" secondAttribute="bottom" constant="6" id="q7E-hk-kAJ"/>
+                <constraint firstItem="yUI-HA-PMd" firstAttribute="top" secondItem="ZmW-AX-Bv9" secondAttribute="bottom" constant="6" id="qol-Re-s41"/>
+                <constraint firstItem="Y7m-Qh-udy" firstAttribute="leading" secondItem="ZmW-AX-Bv9" secondAttribute="leading" id="sD4-0I-ICz"/>
+                <constraint firstItem="HuJ-7T-4cK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-1" id="sED-CV-Gqo"/>
+                <constraint firstItem="j6T-Tz-ijY" firstAttribute="leading" secondItem="Y7m-Qh-udy" secondAttribute="leading" id="tKn-ya-oET"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="DFT-dt-eWu" secondAttribute="trailing" constant="2" id="uF5-Fl-LW6"/>
+                <constraint firstItem="caj-Li-UaR" firstAttribute="top" secondItem="Y7m-Qh-udy" secondAttribute="bottom" constant="6" id="vJK-YM-mUT"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>
