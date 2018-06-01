@@ -23,6 +23,29 @@
  - 开几条线程,取决于队列,串行开一条,并发可以开多条(异步)
  */
 
+
+
+
+
+/*
+ 全局队列 & 并发队列
+ 1> 名称,并发队列取名字,适合于企业开发跟踪错误
+ 2> release,在MRC 并发队列 需要使用的
+ dispatch_release(q);//ARC 情况下不需要release !
+ 
+ 
+ 全局队列 & 串行队列
+ 全局队列: 并发,能够调度多个线程,执行效率高
+ - 费电
+ 串行队列:一个一个执行,执行效率低
+ - 省点
+ 
+ 判断依据:用户上网方式
+ - WIFI : 可以多开线程
+ - 流量  : 尽量少开线程
+ 
+ */
+
 #import "GCDViewController.h"
 #import "GCDLoadViewController.h"
 
@@ -280,6 +303,8 @@
 }
 
 #pragma mark- 14.主队列，同步执行(会奔溃)
+//会等待主线程上的任务执行结束，才会执行该任务，但是主线程永远不会执行结束(除非杀掉进程),于是形成了死锁
+
 - (IBAction)gcdDemo14:(UIButton *)sender {
     dispatch_sync(dispatch_get_main_queue(), ^{
         NSLog(@"000000 %@",[NSThread currentThread]);
