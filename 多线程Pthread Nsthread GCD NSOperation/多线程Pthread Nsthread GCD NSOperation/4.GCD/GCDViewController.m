@@ -48,17 +48,168 @@
 
 #import "GCDViewController.h"
 #import "GCDLoadViewController.h"
+#import "ViewController.h"
+#import <objc/message.h>
 
-@interface GCDViewController ()
-
+@interface GCDViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property(nonatomic,weak)UITableView *tableView;
+@property(nonatomic,strong)NSMutableArray *data;
 @end
 
 @implementation GCDViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initTableView];
     // Do any additional setup after loading the view from its nib.
 }
+
+-(void)initTableView{
+    UITableView *table = [[UITableView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    table.backgroundColor = [UIColor whiteColor];
+    table.dataSource = self;
+    table.delegate = self;
+    self.tableView = table;
+    [self.view addSubview:table];
+    self.data = [NSMutableArray arrayWithCapacity:4];
+    
+    Model *m1 = [[Model alloc]init];
+    m1.myDescription = @"1.GCD 同步执行";
+    [self.data addObject:m1];
+    
+    Model *m2 = [[Model alloc]init];
+    m2.myDescription = @"2.GCD 异步执行";
+    [self.data addObject:m2];
+    
+    Model *m3 = [[Model alloc]init];
+    m3.myDescription = @"3.回归主线程";
+    [self.data addObject:m3];
+    
+    Model *m4 = [[Model alloc]init];
+    m4.myDescription = @"4.GCD下载图片";
+    [self.data addObject:m4];
+    
+    Model *m5 = [[Model alloc]init];
+    m5.myDescription = @"5.串行队列,同步任务";
+    [self.data addObject:m5];
+    
+    Model *m6 = [[Model alloc]init];
+    m6.myDescription = @"6.串行队列,异步任务";
+    [self.data addObject:m6];
+    
+    Model *m7 = [[Model alloc]init];
+    m7.myDescription = @"7.并发队列,异步执行";
+    [self.data addObject:m7];
+    
+    Model *m8 = [[Model alloc]init];
+    m8.myDescription = @"8.并发队列,同步执行";
+    [self.data addObject:m8];
+    
+    Model *m9 = [[Model alloc]init];
+    m9.myDescription = @"9.同步任务作用";
+    [self.data addObject:m9];
+    
+    Model *m10 = [[Model alloc]init];
+    m10.myDescription = @"10.增强版同步任务";
+    [self.data addObject:m10];
+    
+    Model *m11 = [[Model alloc]init];
+    m11.myDescription = @"11.全局队列 (本质上并发队列)";
+    [self.data addObject:m11];
+    
+    Model *m12 = [[Model alloc]init];
+    m12.myDescription = @"12.全局队列,同步执行";
+    [self.data addObject:m12];
+    
+    Model *m13 = [[Model alloc]init];
+    m13.myDescription = @"13.全局队列,异步执行";
+    [self.data addObject:m13];
+    
+    Model *m14 = [[Model alloc]init];
+    m14.myDescription = @"14.主队列，同步执行(会奔溃)";
+    [self.data addObject:m14];
+    
+    Model *m15 = [[Model alloc]init];
+    m15.myDescription = @"15.主队列，异步执行";
+    [self.data addObject:m15];
+    
+    Model *m16 = [[Model alloc]init];
+    m16.myDescription = @"16.GCD延时执行";
+    [self.data addObject:m16];
+    
+    Model *m17 = [[Model alloc]init];
+    m17.myDescription = @"17.一次执行";
+    [self.data addObject:m17];
+    
+    Model *m18 = [[Model alloc]init];
+    m18.myDescription = @"18.调度组";
+    [self.data addObject:m18];
+    
+    
+    Model *m19 = [[Model alloc]init];
+    m19.myDescription = @"19.主队列演练1";
+    [self.data addObject:m19];
+    
+    Model *m20 = [[Model alloc]init];
+    m20.myDescription = @"20.主队列演练2";
+    [self.data addObject:m20];
+    
+    Model *m21 = [[Model alloc]init];
+    m21.myDescription = @"21.主队列演练3";
+    [self.data addObject:m21];
+    
+    
+    
+//    Model *m19 = [[Model alloc]init];
+//    m19.myDescription = @"";
+//    [self.data addObject:m19];
+//    
+//    Model *m20 = [[Model alloc]init];
+//    m20.myDescription = @"";
+//    [self.data addObject:m20];
+  
+}
+
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.data.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *signCell = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:signCell];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:(UITableViewCellStyleDefault) reuseIdentifier:signCell];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    Model *m = [self.data objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = m.myDescription;
+    
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    SEL sel = NSSelectorFromString([NSString stringWithFormat:@"gcdDemo%ld:",indexPath.row + 1]);
+    [self performSelector:sel withObject:nil];
+    Model *m = [self.data objectAtIndex:indexPath.row];
+    self.title = m.myDescription;
+
+
+    
+}
+
+
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
+}
+
+
+
 
 #pragma mark- 1.同步执行方法,这句话不执行完,就不会执行下一个任务,同步执行不会开启线程
 
@@ -303,7 +454,7 @@
 }
 
 #pragma mark- 14.主队列，同步执行(会奔溃)
-//会等待主线程上的任务执行结束，才会执行该任务，但是主线程永远不会执行结束(除非杀掉进程),于是形成了死锁
+//会等待主线程上的任务执行结束，才会执行该任务，于是形成了死锁
 
 - (IBAction)gcdDemo14:(UIButton *)sender {
     dispatch_sync(dispatch_get_main_queue(), ^{
@@ -323,10 +474,147 @@
 }
 
 
+#pragma mark- 16.延时执行
+- (IBAction)gcdDemo16:(UIButton *)sender {
+    /**
+     从现在开始,经过多少纳秒之后,让 queue队列,调度 block 任务,异步执行!
+     参数:
+     1.when
+     2.queue
+     3.block
+     */
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0003*NSEC_PER_SEC)), dispatch_queue_create("ios", DISPATCH_QUEUE_SERIAL), ^{
+        NSLog(@"2222222%@",[NSThread currentThread]);
+        [NSThread sleepForTimeInterval:1.0];
+    });
+    NSLog(@"111111  %@",[NSThread currentThread]);
+    [NSThread sleepForTimeInterval:3.0];
+    NSLog(@"333333  %@",[NSThread currentThread]);
+}
+#pragma mark- 17.一次执行
+
+- (IBAction)gcdDemo17:(UIButton *)sender {
+    for (int i = 0; i<20; i++) {
+        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+            //苹果提供的 一次执行机制,不仅能够保证一次执行!而且是线程安全的!!
+            static dispatch_once_t onceToken;
+            NSLog(@"%ld",onceToken);
+            //苹果推荐使用 gcd 一次执行,效率高
+            //不要使用互斥锁,效率低!
+            dispatch_once(&onceToken, ^{
+                //只会执行一次!!
+                NSLog(@"执行了%@  %ld",[NSThread currentThread],onceToken);
+            });
+        });
+    };
+}
+
+
+#pragma mark- 18.调度组
+
+- (IBAction)gcdDemo18:(UIButton *)sender {
+    
+     //1.队列
+     dispatch_queue_t q = dispatch_get_global_queue(0, 0);
+     
+     //2.调度组
+     dispatch_group_t g = dispatch_group_create();
+     
+     //3.添加任务,让队列调度,任务执行情况,最后通知群组
+     dispatch_group_async(g, q, ^{
+     NSLog(@"download A%@",[NSThread currentThread]);
+     });
+     dispatch_group_async(g, q, ^{
+     [NSThread sleepForTimeInterval:1.0];
+     NSLog(@"download B%@",[NSThread currentThread]);
+     });
+     dispatch_group_async(g, q, ^{
+     [NSThread sleepForTimeInterval:1.0];
+     NSLog(@"download C%@",[NSThread currentThread]);
+     });
+     
+     //4.所有任务执行完毕后,通知
+     //用一个调度组,可以监听全局队列的任务,主队列去执行最后的任务
+     //dispatch_group_notify 本身也是异步的!
+     dispatch_group_notify(g, dispatch_get_main_queue(), ^{
+     //更新UI,通知用户
+     NSLog(@"OK %@",[NSThread currentThread]);
+     });
+    
+    NSLog(@"0000000   %@",[NSThread currentThread]);
+     
+}
+
+#pragma mark- 19.主队列演练1
+
+- (IBAction)gcdDemo19:(UIButton *)sender {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSLog(@"000000%@",[NSThread currentThread]);
+    });
+    NSLog(@"11111111%@",[NSThread currentThread]);
+    [NSThread sleepForTimeInterval:3];
+    NSLog(@"222222%@",[NSThread currentThread]);
+}
+
+#pragma mark- 20.主队列演练2(奔溃)
+/**
+ 主队列 & 串行队列的区别
+ 都是 一个一个安排任务
+ 队列特点:FIFO
+ 
+ - 并发队列  可以调度很多任务
+ - 串行独立, 必须等待一个任务执行完成,再调度另外一个
+ - 最多只能开启一条线程
+ - 主队列,以FIFO调度任务,如果主线程上有任务在执行,主队列就不会调度任务
+ - 主要是负责在主线程上执行任务
+ 
+ */
+
+- (IBAction)gcdDemo20:(UIButton *)sender {
+    //主队列是专门负责在主线程上调度任务的队列 --> 不会开线程
+    
+    
+    //1.队列 --> 已启动主线程,就可以获取主队列
+    dispatch_sync(dispatch_queue_create("999", DISPATCH_QUEUE_SERIAL), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSLog(@"000000%@",[NSThread currentThread]);
+        });
+    });
+    NSLog(@"11111111%@",[NSThread currentThread]);
+    [NSThread sleepForTimeInterval:3];
+    NSLog(@"222222%@",[NSThread currentThread]);
+}
+
+
+#pragma mark- 21.主队列演练3
+
+- (IBAction)gcdDemo21:(UIButton *)sender {
+//    dispatch_async(dispatch_queue_create("999", DISPATCH_QUEUE_SERIAL), ^{
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+//            NSLog(@"000000%@",[NSThread currentThread]);
+//        });
+//        NSLog(@"111111 %@",[NSThread currentThread]);
+//    });
+    
+    
+    dispatch_async(dispatch_queue_create("999", DISPATCH_QUEUE_CONCURRENT), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [NSThread sleepForTimeInterval:2.0];
+            NSLog(@"000000%@",[NSThread currentThread]);
+        });
+        NSLog(@"111111 %@",[NSThread currentThread]);
+    });
+    NSLog(@"222222 %@",[NSThread currentThread]);
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)dealloc{
+    NSLog(@"%s",__func__);
 }
 
 /*

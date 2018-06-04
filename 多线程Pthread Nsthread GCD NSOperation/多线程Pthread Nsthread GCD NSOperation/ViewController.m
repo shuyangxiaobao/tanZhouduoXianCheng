@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "Model.h"
 
 //  并发编程!!Pthread NSThread   GCD NSOperation 并发技术!
 

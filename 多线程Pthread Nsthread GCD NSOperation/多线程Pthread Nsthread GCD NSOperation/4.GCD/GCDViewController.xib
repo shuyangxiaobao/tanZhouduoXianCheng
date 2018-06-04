@@ -16,7 +16,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="UIScrollView" customModule="多线程Pthread_Nsthread_GCD_NSOperation">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -140,14 +140,39 @@
                         <action selector="gcdDemo15:" destination="-1" eventType="touchUpInside" id="0f2-8G-2Ad"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FW1-XF-mDF">
+                    <rect key="frame" x="-1" y="570" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="16.GCD延时执行"/>
+                    <connections>
+                        <action selector="gcdDemo16:" destination="-1" eventType="touchUpInside" id="OGa-R6-ooV"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dPG-hk-TSg">
+                    <rect key="frame" x="0.0" y="606" width="375" height="30"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="17.一次执行"/>
+                    <connections>
+                        <action selector="gcdDemo17:" destination="-1" eventType="touchUpInside" id="g1G-Md-Drp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ML4-be-jVQ">
+                    <rect key="frame" x="0.0" y="638" width="375" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.7385329008" green="0.76459586619999997" blue="0.76487356419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="18.一次执行"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="dPG-hk-TSg" firstAttribute="leading" secondItem="yUI-HA-PMd" secondAttribute="leading" id="033-MI-1Mi"/>
                 <constraint firstItem="Y7m-Qh-udy" firstAttribute="top" secondItem="Vkg-R7-Spb" secondAttribute="bottom" constant="6" id="0Qg-dz-QW3"/>
+                <constraint firstItem="dPG-hk-TSg" firstAttribute="trailing" secondItem="yUI-HA-PMd" secondAttribute="trailing" id="15i-Iu-Pq8"/>
                 <constraint firstAttribute="trailing" secondItem="Ddg-sO-ahu" secondAttribute="trailing" constant="-1" id="3sW-51-gfZ"/>
                 <constraint firstItem="kBt-QD-kdY" firstAttribute="top" secondItem="Ddg-sO-ahu" secondAttribute="bottom" constant="5" id="4qD-b1-Wg7"/>
                 <constraint firstItem="9Ar-pP-2NT" firstAttribute="top" secondItem="HuJ-7T-4cK" secondAttribute="bottom" constant="6" id="5iA-4b-Zrm"/>
                 <constraint firstItem="ZmW-AX-Bv9" firstAttribute="trailing" secondItem="yUI-HA-PMd" secondAttribute="trailing" id="66P-et-Cz6"/>
+                <constraint firstItem="FW1-XF-mDF" firstAttribute="top" secondItem="Tph-45-YVk" secondAttribute="bottom" constant="8" symbolic="YES" id="7Cx-tj-BtD"/>
                 <constraint firstItem="DFT-dt-eWu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-2" id="AeF-gw-Byo"/>
                 <constraint firstItem="j6T-Tz-ijY" firstAttribute="trailing" secondItem="Y7m-Qh-udy" secondAttribute="trailing" id="Afp-Rz-b7D"/>
                 <constraint firstItem="kBt-QD-kdY" firstAttribute="leading" secondItem="9Ar-pP-2NT" secondAttribute="leading" id="Air-yE-880"/>
@@ -157,9 +182,11 @@
                 <constraint firstItem="kBt-QD-kdY" firstAttribute="trailing" secondItem="9Ar-pP-2NT" secondAttribute="trailing" id="NLv-cC-JpD"/>
                 <constraint firstItem="HuJ-7T-4cK" firstAttribute="top" secondItem="kBt-QD-kdY" secondAttribute="bottom" constant="6" id="NcG-Q8-WwT"/>
                 <constraint firstItem="HuJ-7T-4cK" firstAttribute="trailing" secondItem="Tph-45-YVk" secondAttribute="trailing" id="Nun-Wi-WxW"/>
+                <constraint firstItem="dPG-hk-TSg" firstAttribute="top" secondItem="FW1-XF-mDF" secondAttribute="bottom" constant="6" id="PmG-Xn-fl8"/>
                 <constraint firstItem="DFT-dt-eWu" firstAttribute="leading" secondItem="caj-Li-UaR" secondAttribute="leading" id="RPQ-vm-sN3"/>
                 <constraint firstItem="9Ar-pP-2NT" firstAttribute="leading" secondItem="Vkg-R7-Spb" secondAttribute="leading" id="RbW-bi-23e"/>
                 <constraint firstItem="TOc-Bo-Pwb" firstAttribute="leading" secondItem="UOL-wk-nyE" secondAttribute="leading" id="Rhv-Gi-77o"/>
+                <constraint firstItem="FW1-XF-mDF" firstAttribute="leading" secondItem="Tph-45-YVk" secondAttribute="leading" id="SIH-eu-tbF"/>
                 <constraint firstItem="DFT-dt-eWu" firstAttribute="trailing" secondItem="caj-Li-UaR" secondAttribute="trailing" id="SoR-4S-RCa"/>
                 <constraint firstItem="TOc-Bo-Pwb" firstAttribute="trailing" secondItem="UOL-wk-nyE" secondAttribute="trailing" id="Umf-Ee-0hm"/>
                 <constraint firstItem="ZmW-AX-Bv9" firstAttribute="leading" secondItem="yUI-HA-PMd" secondAttribute="leading" id="VB5-cD-Zod"/>
@@ -169,6 +196,7 @@
                 <constraint firstItem="Ddg-sO-ahu" firstAttribute="top" secondItem="j6T-Tz-ijY" secondAttribute="bottom" constant="6" id="YG9-4Q-wq8"/>
                 <constraint firstItem="9Ar-pP-2NT" firstAttribute="trailing" secondItem="Vkg-R7-Spb" secondAttribute="trailing" id="YZW-Ce-cD1"/>
                 <constraint firstItem="Ddg-sO-ahu" firstAttribute="trailing" secondItem="kBt-QD-kdY" secondAttribute="trailing" id="Z4m-zz-VAk"/>
+                <constraint firstItem="FW1-XF-mDF" firstAttribute="trailing" secondItem="Tph-45-YVk" secondAttribute="trailing" id="Zcp-jW-j60"/>
                 <constraint firstItem="UOL-wk-nyE" firstAttribute="top" secondItem="TOc-Bo-Pwb" secondAttribute="bottom" constant="5" id="amQ-hF-INb"/>
                 <constraint firstItem="Y7m-Qh-udy" firstAttribute="trailing" secondItem="ZmW-AX-Bv9" secondAttribute="trailing" id="dMs-l7-WoR"/>
                 <constraint firstItem="DFT-dt-eWu" firstAttribute="top" secondItem="UOL-wk-nyE" secondAttribute="bottom" constant="6" id="f3j-Bc-UHO"/>

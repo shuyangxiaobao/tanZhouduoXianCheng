@@ -94,6 +94,7 @@
 		90D07DE220C13AAF008B6EEA /* NSObject+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzling.m"; sourceTree = "<group>"; };
 		90D07DE320C13AAF008B6EEA /* UIViewController+life.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+life.h"; sourceTree = "<group>"; };
 		90D07DE420C13AAF008B6EEA /* UIViewController+life.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+life.m"; sourceTree = "<group>"; };
+		90F3D28C20C5382F00A5DD96 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +202,8 @@
 		907A814E20BE96E000C7975A /* 多线程Pthread Nsthread GCD NSOperation */ = {
 			isa = PBXGroup;
 			children = (
+				907A819220BE9D6E00C7975A /* Model.m */,
+				90F3D28C20C5382F00A5DD96 /* Model.h */,
 				9068E55020BE9F2F00CDC3B2 /* 1.pthread */,
 				9068E54C20BE9F2F00CDC3B2 /* 2.NSThread */,
 				9068E55520BE9F2F00CDC3B2 /* 3.NSOperation */,
@@ -210,7 +213,6 @@
 				907A815020BE96E000C7975A /* AppDelegate.m */,
 				907A815220BE96E000C7975A /* ViewController.h */,
 				907A815320BE96E000C7975A /* ViewController.m */,
-				907A819220BE9D6E00C7975A /* Model.m */,
 				907A815520BE96E000C7975A /* Main.storyboard */,
 				907A815820BE96E100C7975A /* Assets.xcassets */,
 				907A815A20BE96E100C7975A /* LaunchScreen.storyboard */,
